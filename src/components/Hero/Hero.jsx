@@ -1,6 +1,6 @@
 import styles from "./Hero.module.css";
 import logo from "../../img/cube.png";
-
+import Button from "../UI/Button/Button";
 function Hero() {
   return (
     <section className={styles.hero}>
@@ -13,7 +13,7 @@ function Hero() {
           Quisque id odio sed tellus molestie bibendum. Fusce fermentum
           facilisis venenatis.
         </p>
-        <button className={styles.btn}>Let start</button>
+        <Button className={styles.btn}>Let start</Button>
       </div>
       <div className={styles.hero_image}>
         <img src={logo} alt="Hero"></img>

@@ -1,0 +1,46 @@
+.gallery {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    background: #aaaaaa;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+
+.gallery h2 {
+    font-size: 36px;
+    margin: 40px 0;
+    color: #1c1717;
+}
+
+.container {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+
+}
+
+.gallery input {
+    width: 400px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    padding-left: 10px;
+}

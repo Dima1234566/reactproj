@@ -23,7 +23,7 @@ function Header() {
         </ul>
       </nav>
       <div>
-        <Button>Contact</Button>
+        <Button className={styles.button}>Contact</Button>
       </div>
     </header>
   );

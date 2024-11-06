@@ -40,3 +40,17 @@
 .navigation li {
     list-style: none;
 }
+
+.button {
+    background-color: #6d4fe7;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #9e92d5;
+}
