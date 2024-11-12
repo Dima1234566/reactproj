@@ -3,7 +3,7 @@ import logo from "../../img/cube.png";
 import Button from "../UI/Button/Button";
 function Hero() {
   return (
-    <section className={styles.hero}>
+    <main className={styles.hero}>
       <div className={styles.hero_title}>
         <h1>Let’s stand out whith us</h1>
         <p>
@@ -18,7 +18,7 @@ function Hero() {
       <div className={styles.hero_image}>
         <img src={logo} alt="Hero"></img>
       </div>
-    </section>
+    </main>
   );
 }
 

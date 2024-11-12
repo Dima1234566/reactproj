@@ -3,10 +3,7 @@
     height: auto;
     margin: 0 auto;
     padding: 50px 0;
-    background-image: url('https://pixabay.com/get/gc55958ffe9ad0e1a8c4f125e4fae90757e7ee0a4fcd98ff27281094f1bc763fe33bcfb335a6dbf01215e480693045ef928f92fc34428cc5860dd05b04b24c02a_1280.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: antiquewhite;
     text-align: center;
     display: flex;
     align-items: center;

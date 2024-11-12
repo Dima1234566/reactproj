@@ -1,6 +1,12 @@
 import styles from "./Header.module.css";
 import logo from "../../logo.svg";
 import Button from "../UI/Button/Button";
+import {
+  FaTelegram,
+  FaInstagram,
+  FaFacebook,
+  FaLinkedin,
+} from "react-icons/fa";
 
 function Header() {
   return (
@@ -22,8 +28,30 @@ function Header() {
           </li>
         </ul>
       </nav>
-      <div>
-        <Button className={styles.button}>Contact</Button>
+      <div className={styles.social}>
+        <div>
+          <a href="http://">
+            <FaTelegram size={25} />
+          </a>
+        </div>
+        <div>
+          <a href="http://">
+            <FaInstagram size={25} />
+          </a>
+        </div>
+        <div>
+          <a href="http://">
+            <FaFacebook size={25} />
+          </a>
+        </div>
+        <div>
+          <a href="http://">
+            <FaLinkedin size={25} />
+          </a>
+        </div>
+        <div>
+          <Button className={styles.button}>Contact</Button>
+        </div>
       </div>
     </header>
   );

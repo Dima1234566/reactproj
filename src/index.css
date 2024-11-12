@@ -13,6 +13,11 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+  color: #333;
+}
+
 button {
   width: 120px;
   height: 40px;
