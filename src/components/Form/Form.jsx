@@ -2,7 +2,7 @@ import styles from "./Form.module.css";
 import Select from "react-select";
 import { select } from "./select.ts";
 import React, { useEffect } from "react";
-
+import { LuRefreshCw } from "react-icons/lu";
 function Form() {
   const [formData, setFormData] = React.useState({
     name: "",
@@ -12,7 +12,8 @@ function Form() {
     message: "",
   });
   const [selected, setSelected] = React.useState(null);
-  const [dataToSend, setDataToSend] = React.useState(null);
+  // const [dataToSend, setDataToSend] = React.useState(null);
+  const [store, setStore] = React.useState([]);
   //e - event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,6 +23,15 @@ function Form() {
       [name]: value.trim(),
     }));
   };
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("data"));
+    if (!data) {
+      localStorage.setItem("data", JSON.stringify(store));
+    } else {
+      setStore(data);
+    }
+  }, [store]);
 
   const onSubmit = async (e) => {
     const data = {
@@ -36,12 +46,21 @@ function Form() {
       //     },
       //     body: JSON.stringify(dataToSend),
       //   });
-      setDataToSend(data);
+      // setDataToSend(data);
+
       setFormData({ name: "", email: "", phone: "", url: "", message: "" });
       setSelected(null);
+
+      const storeArr = [...store, data];
+      localStorage.setItem("data", JSON.stringify(storeArr));
     } catch (error) {
       console.error("Error:", error);
     }
+  };
+
+  const handleRefresh = () => {
+    localStorage.setItem("data", JSON.stringify([]));
+    setStore([]);
   };
 
   const optionsSelect = [
@@ -114,9 +133,36 @@ function Form() {
             </button>
           </div>
         </form>
-        {dataToSend !== null && (
-          <div>
-            <h2> {dataToSend.name}</h2>
+
+        {store.length !== 0 && (
+          <div className={styles.title}>
+            <h2>Form data</h2>
+            <span onClick={() => handleRefresh()}>
+              <LuRefreshCw size={50} />
+            </span>
+          </div>
+        )}
+        {store.length !== 0 && (
+          <div className={styles.card_container}>
+            {store.map((item, index) => (
+              <div key={index} className={styles.card}>
+                <ul>
+                  <li key={index}>
+                    <p>Name: {item.name}</p>
+                    <p>Email: {item.email}</p>
+                    <p>Phone: {item.phone}</p>
+                    <p>
+                      Url:{" "}
+                      <a target="_blanck" href={item.url}>
+                        Click me
+                      </a>{" "}
+                    </p>
+                    <p>Type: {item.type}</p>
+                    <p>Message: {item.message}</p>
+                  </li>
+                </ul>
+              </div>
+            ))}
           </div>
         )}
       </div>
