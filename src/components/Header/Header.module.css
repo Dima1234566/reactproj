@@ -7,6 +7,7 @@
     justify-content: space-around;
     gap: 10%;
     background-color: #fff;
+    position: relative;
 }
 
 .logo {
@@ -61,4 +62,67 @@
     align-items: center;
     justify-content: space-around;
     gap: 20px;
+}
+
+
+.burger {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .burger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .social {
+        display: none;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .socialMob {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 50px;
+    }
+
+    .navigationMob {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0;
+        gap: 30px;
+        margin-top: 50px;
+    }
+
+    .navigationMob a {
+        font-size: 20px;
+        font-weight: 500;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .navigationMob a:hover {
+        color: #6d4fe7;
+    }
+
+    .navigationMob li {
+        list-style: none;
+    }
+}
+
+.mobile {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 100%;
+    height: 800vh;
+    background-color: rgb(236, 236, 219);
 }

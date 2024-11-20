@@ -26,6 +26,7 @@
     font-size: 20px;
     font-weight: 400;
     color: #333;
+
 }
 
 .hero_image {
@@ -58,4 +59,42 @@
 
 .btn:hover {
     background-color: #555;
+}
+
+@media (max-width: 768px) {
+    .hero_title h1 {
+        font-size: 32px;
+        font-weight: 700;
+        color: #333;
+    }
+
+    .hero_title p {
+        font-size: 16px;
+        font-weight: 400;
+        color: #333;
+    }
+
+    .hero_title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 80%;
+        margin: 0 auto;
+
+
+    }
+
+    .hero_image {
+        display: none;
+
+    }
+
+    .hero {
+        width: 100%;
+        margin: 0 auto;
+        background-image: url('/src/img/cube.png');
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 }

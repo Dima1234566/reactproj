@@ -14,7 +14,9 @@ function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.logo}>
-        <img src={logo} alt="Logo" width={140} height={140} />
+        <div className={styles.logo_img}>
+          <img src={logo} alt="Logo" width={140} height={140} />
+        </div>
         <div className={styles.contacts}>
           <div className={styles.contact_item}>
             <div>
