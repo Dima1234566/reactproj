@@ -9,12 +9,22 @@ import {
 } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [open, setOpen] = useState(false);
-
+  const location = window.location.pathname;
+  useEffect(() => {
+    if (location === "/") {
+      document.querySelector("li").classList.add(styles.active);
+    } else if (location === "/about") {
+      document.querySelectorAll("li")[1].classList.add(styles.active);
+    } else if (location === "/contact") {
+      document.querySelectorAll("li")[2].classList.add(styles.active);
+    }
+  }, [location]);
   const toggleMenu = () => {
     setShowMobileMenu((prevState) => !prevState);
     setOpen((prevState) => !prevState);
@@ -22,10 +32,12 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <img src={logo} alt="Logo" width={50} height={50} />
-        <span>REACT APP</span>
-      </div>
+      <Link to="/">
+        <div className={styles.logo}>
+          <img src={logo} alt="Logo" width={50} height={50} />
+          <span>REACT APP</span>
+        </div>
+      </Link>
       <nav>
         <ul className={styles.navigation}>
           <li>
@@ -41,7 +53,7 @@ function Header() {
       </nav>
       <div className={styles.social}>
         <div>
-          <a href="http://">
+          <a href="#gallery">
             <FaTelegram size={25} />
           </a>
         </div>

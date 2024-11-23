@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.card {
+    display: flex;
+    width: 90%;
+}
+
+.card_img {
+    width: 50%;
+}
+
+.card_img img {
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.card_info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.back {
+    margin-top: 40px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}

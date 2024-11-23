@@ -126,3 +126,23 @@
     height: 800vh;
     background-color: rgb(236, 236, 219);
 }
+
+
+
+
+
+
+.active {
+    position: relative;
+}
+
+.active:after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    border-bottom: 3px solid #6d4fe7;
+    width: 100%;
+    top: 30px;
+    left: 0;
+    white-space: nowrap;
+}

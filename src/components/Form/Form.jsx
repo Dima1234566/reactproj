@@ -12,7 +12,7 @@ function Form() {
     message: "",
   });
   const [selected, setSelected] = React.useState(null);
-  // const [dataToSend, setDataToSend] = React.useState(null);
+  const [dataToSend, setDataToSend] = React.useState(null);
   const [store, setStore] = React.useState([]);
   //e - event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
   const handleChange = (e) => {
@@ -27,11 +27,11 @@ function Form() {
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("data"));
     if (!data) {
-      localStorage.setItem("data", JSON.stringify(store));
+      localStorage.setItem("data", JSON.stringify([]));
     } else {
       setStore(data);
     }
-  }, [store]);
+  }, [dataToSend]);
 
   const onSubmit = async (e) => {
     const data = {
@@ -46,7 +46,7 @@ function Form() {
       //     },
       //     body: JSON.stringify(dataToSend),
       //   });
-      // setDataToSend(data);
+      setDataToSend(data);
 
       setFormData({ name: "", email: "", phone: "", url: "", message: "" });
       setSelected(null);

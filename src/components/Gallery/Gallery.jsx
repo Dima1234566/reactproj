@@ -1,17 +1,17 @@
 import Card from "../UI/Card/Card";
 import styles from "./Gallery.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import Modal from "../UI/Modal/Modal";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+
 function Gallery() {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("frogs");
-  const [modalOpen, setModalOpen] = useState(false);
-  const [largeImageURL, setLargeImageURL] = useState("");
 
+  const navigate = useNavigate();
   const title = "Frogs Gallery";
   useEffect(() => {
     try {
@@ -39,17 +39,19 @@ function Gallery() {
     setPage(page - 1);
   };
 
-  const openModal = (url) => {
-    setLargeImageURL(url);
-    setModalOpen(true);
+  const handleNavigate = (img) => {
+    navigate(`/card/${img.id}`, { state: { img } });
   };
+  const galleryRef = useRef(null);
 
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  useEffect(() => {
+    if (window.location.hash === "#gallery") {
+      galleryRef.current?.scrollIntoView();
+    }
+  }, []);
 
   return (
-    <section className={styles.gallery}>
+    <section id="gallery" ref={galleryRef} className={styles.gallery}>
       <h2>{title}</h2>
       <div className={styles.btns}>
         <div onClick={() => handlePrev()} style={{ cursor: "pointer" }}>
@@ -70,13 +72,12 @@ function Gallery() {
           images.map((image, index) => (
             <div key={index}>
               <h3>{image.tags.toUpperCase()}</h3>
-              <div onClick={() => openModal(image.largeImageURL)}>
+              <div onClick={() => handleNavigate(image)}>
                 <Card url={image.webformatURL} />
               </div>
             </div>
           ))}
       </div>
-      {modalOpen && <Modal url={largeImageURL} onClose={() => closeModal()} />}
     </section>
   );
 }
